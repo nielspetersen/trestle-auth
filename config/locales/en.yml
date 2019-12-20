@@ -6,3 +6,8 @@ en:
       logout: "Logout"
       error: "Incorrect login details."
       remember_me: "Remember me"
+
+    flash:
+      unauthorized:
+        title: "Access Denied!"
+        message: "You are not authorized to access this page."
