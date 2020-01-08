@@ -16,6 +16,7 @@ module Trestle
     autoload :ModelMethods
     autoload :NullUser
     autoload :Resource
+    autoload :Toolbars
 
     module Controller
       extend ActiveSupport::Autoload
