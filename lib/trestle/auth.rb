@@ -6,17 +6,13 @@ module Trestle
   module Auth
     extend ActiveSupport::Autoload
 
-    autoload :Admin
     autoload :AccessDenied
     autoload :Backends
-    autoload :Builder
     autoload :Configuration
     autoload :Constraint
     autoload :ControllerMethods
     autoload :ModelMethods
     autoload :NullUser
-    autoload :Resource
-    autoload :Toolbars
 
     module Controller
       extend ActiveSupport::Autoload
@@ -25,6 +21,14 @@ module Trestle
       autoload :Authorization
       autoload :Locale
       autoload :TimeZone
+    end
+
+    module Extensions
+      extend ActiveSupport::Autoload
+
+      autoload :Admin
+      autoload :Resource
+      autoload :Toolbars
     end
 
     autoload_under "adapters" do
