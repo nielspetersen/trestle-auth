@@ -27,6 +27,7 @@ module Trestle
       extend ActiveSupport::Autoload
 
       autoload :Admin
+      autoload :Navigation
       autoload :Resource
       autoload :Toolbars
     end
