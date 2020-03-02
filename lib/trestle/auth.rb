@@ -30,6 +30,8 @@ module Trestle
       autoload :Form
       autoload :Navigation
       autoload :Resource
+      autoload :ResourceCollection
+      autoload :ResourceController
       autoload :Toolbars
     end
 
