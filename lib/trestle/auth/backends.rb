@@ -1,12 +1,10 @@
 module Trestle
   module Auth
     module Backends
-      extend ActiveSupport::Autoload
-
-      autoload :Base
-      autoload :Basic
-      autoload :Devise
-      autoload :Warden
+      require_relative "backends/base"
+      require_relative "backends/basic"
+      require_relative "backends/warden"
+      require_relative "backends/devise"
 
       def self.lookup(backend)
         case backend

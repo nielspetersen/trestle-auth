@@ -1,46 +1,35 @@
-require "trestle/auth/version"
+require_relative "auth/version"
 
 require "trestle"
 
 module Trestle
   module Auth
-    extend ActiveSupport::Autoload
+    require_relative "auth/access_denied"
+    require_relative "auth/backends"
+    require_relative "auth/configuration"
+    require_relative "auth/constraint"
+    require_relative "auth/model_methods"
+    require_relative "auth/null_user"
 
-    autoload :AccessDenied
-    autoload :Backends
-    autoload :Configuration
-    autoload :Constraint
-    autoload :ControllerMethods
-    autoload :ModelMethods
-    autoload :NullUser
+    require_relative "auth/controller/authentication"
+    require_relative "auth/controller/authorization"
+    require_relative "auth/controller/locale"
+    require_relative "auth/controller/time_zone"
 
-    module Controller
-      extend ActiveSupport::Autoload
+    require_relative "auth/controller_methods"
 
-      autoload :Authentication
-      autoload :Authorization
-      autoload :Locale
-      autoload :TimeZone
-    end
+    require_relative "auth/extensions/admin"
+    require_relative "auth/extensions/form"
+    require_relative "auth/extensions/navigation"
+    require_relative "auth/extensions/resource"
+    require_relative "auth/extensions/resource_collection"
+    require_relative "auth/extensions/resource_controller"
+    require_relative "auth/extensions/toolbars"
 
-    module Extensions
-      extend ActiveSupport::Autoload
-
-      autoload :Admin
-      autoload :Form
-      autoload :Navigation
-      autoload :Resource
-      autoload :ResourceCollection
-      autoload :ResourceController
-      autoload :Toolbars
-    end
-
-    autoload_under "adapters" do
-      autoload :CanCanAdapter
-    end
+    require_relative "auth/adapters/can_can_adapter"
   end
 
   Configuration.option :auth, Auth::Configuration.new
 end
 
-require "trestle/auth/engine" if defined?(Rails)
+require_relative "auth/engine" if defined?(Rails)
