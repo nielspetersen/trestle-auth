@@ -6,7 +6,7 @@ module Trestle
       require_relative "model_methods/rememberable"
 
       included do
-        has_secure_password
+        has_secure_password unless Trestle.config.auth.backend == :devise
       end
 
       module ClassMethods
